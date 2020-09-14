@@ -2,7 +2,7 @@ package lab2.q3;
 
 import java.util.*;
 
-public class Account {
+class Account {
 	private String memberName;
 	private String accountNumber;
 	private double accountBalance;

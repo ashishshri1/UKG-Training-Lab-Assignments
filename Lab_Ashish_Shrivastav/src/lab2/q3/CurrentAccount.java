@@ -1,13 +1,20 @@
 package lab2.q3;
 
-class CurrentAccount extends Account{
+class CurrentAccount extends Account {
 	String tradeLicenseNumber;
+
+	public CurrentAccount(String memberName, String tradeLicenseNumber, double initialBalance) {
+		super(memberName, initialBalance);
+		this.tradeLicenseNumber = tradeLicenseNumber;
+	}
+
 	public double getBalance() {
-		return accountBalance;
+		return this.getAccountBalance();
 	}
-	public void withdraw(double withdrawMoney) {
-		if(withdrawMoney<=accountBalance)
-			accountBalance-=withdrawMoney;
+
+	public void withdraw(double money) {
+		if (money <= this.getAccountBalance())
+			this.setAccountBalance(this.getAccountBalance() - money);
 	}
-	
+
 }

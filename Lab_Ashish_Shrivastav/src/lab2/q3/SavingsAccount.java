@@ -1,18 +1,20 @@
 package lab2.q3;
 
 class SavingsAccount extends Account {
-	private int interest = 5;
-	private int maxWithdrawLimit;
-	public SavingsAccount(String memberName,int maxWithdrawLimit)
-	{
-		super(memberName,500);
-		this.maxWithdrawLimit=maxWithDrawLimit;
+	private double interest = 5;
+	private double maxWithdrawLimit;
+
+	public SavingsAccount(String memberName, double maxWithdrawLimit, double initialBalance) {
+		super(memberName, initialBalance);
+		this.maxWithdrawLimit = maxWithdrawLimit;
 	}
-	public int getBalance() {
-		return accountBalance+interest;
+	
+	public double getBalance() {
+		return this.getAccountBalance() + interest;
 	}
-	public void withdraw(double m) {
-		if(m<maxWithDrawLimit)
-			accountBalance-=m;
+
+	public void withdraw(double money) {
+		if (money <= maxWithdrawLimit && this.getAccountBalance() - money >= 500)
+			this.setAccountBalance(this.getAccountBalance() - money);
 	}
 }
